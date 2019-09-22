@@ -1,12 +1,14 @@
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta placeholder="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="view/css/bootstrap.css">
-    <link rel="stylesheet" href="view/css/style.css">
-    <title>Post Page</title>
-    <!--NavBar-->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>addPost</title>
+</head>
+<!--NavBar-->
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <a class="navbar-brand" href="#">Navbar</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,16 +31,14 @@
 </ul>
 </div>
 </nav>
+</body>
 
-<!-- Title and img--> 
-<div class="container-fluid bg-light mx-auto">
-  <h1 class="d-flex justify-content-center pb-5 text-dark"><?= $article['title']; ?></h1>
-</div>
 
-<div class="container w-50 bg-light pb-3">
-  <p class="text-left text-success"><?= $article['img'];//modifier en Set?></p>
-  <p class="lead text-black-50">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
-  <p class="text-dark text-justify"><?= $article['text']; ?></p>
-      <h2 class="text-success "><?= $article['author']; ?></h2>
-
-</div>
+<form class="col-sm" action="post">
+<input class="form-control" type="text" placeholder="Title">
+<textarea class="form-control" rows="3">Text</textarea>
+<input class="form-control" type="text" placeholder="category">
+<input class="form-control" type="text" placeholder="author">
+<button type="submit" class="btn btn-primary mb-2">Submit</button>
+</form>
+</html>

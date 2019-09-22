@@ -1,6 +1,6 @@
 <?php
 require ('../model/Article.php');
-require ('../model/DatabaseConnexion.php');
+require_once ('../model/DatabaseConnexion.php');
 require ('../model/ArticleManager.php');
 //showAll
 
@@ -13,7 +13,6 @@ class Controller {
      {
      $this->pdo = getPdo();
      }
-
     //Call the manager
     public function Controller()
     {
@@ -23,7 +22,6 @@ class Controller {
     }
 
     public function articleController($id)
-    //DB connexion
     {
     $articleMana = new ArticleManager($pdo);
     $article = $articleMana->find($id, 'Article');

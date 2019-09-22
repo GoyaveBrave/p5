@@ -18,17 +18,17 @@ class ArticleManager {
     $result = $query->fetch();
     return $result;
     //Création de l'instance Article
-    $article = new Article;
+    /*$article = new Article;
     //hydratation de $article
     $article->setTitle ($result['title']);
     $article->setCategory ($result['category']);
     $article->setAuthor ($result['text']);
-    return $article;
+    return $article; */
 
     }
     public function findAll()
     {
-        $query = $pdo->prepare("SELECT * FROM articles" );
+    $query = $this->pdo->prepare("SELECT * FROM articles" );
     // On exécute la requête en précisant le paramètre :article_id 
     $query->execute();
     // On fouille le résultat pour en extraire les données réelles de l'article

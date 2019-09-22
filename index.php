@@ -11,18 +11,7 @@ if (isset($_GET['article'])) {
     $article = $articleManager->find($_GET['article']);
     include 'view/postpage.html.php';
 } else  {
-    $query = $pdo->prepare("SELECT * FROM articles");
-    // On exécute la requête 
-    $query->execute();
-    // On fouille le résultat pour tout extraire 
-    $articles = $query->fetchAll();
-    //var_dump($articles);
-    //var_dump($articles[1]); die;
-    /*foreach ($articles as $article){
-        echo $article['id'];
-        echo "\n";
-
-    } die; */
+    $articles = $articleManager->findAll();
     include 'view/allPostspage.html.php';
 }
 
