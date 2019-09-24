@@ -3,16 +3,32 @@ require_once 'DatabaseConnexion.php';
 $pdo = getPdo();
 class Article 
 {
-    private $img, $titre, $category, $text, $author;
+    public function __construct(array $data)
+	{
+		$this->hydrate($data);
+	}
+	public function hydrate(array $data)
+	{
+		foreach ($data as $key => $value) 
+		{
+			$method = 'set' . ucfirst($key);
+			if (method_exists($this, $method)) 
+			{
+				$this->$method($value);
+			}
+		}
+    }
+    
+    private $img, $title, $category, $text, $author;
 
     //Setter /
     
-    public function setTitle($titre){
-        $this->titre = $titre; 
-    }
-
     public function setImg($img){
         $this->img = $img; 
+    }
+
+    public function setTitle($title){
+        $this->title = $title; 
     }
 
     public function setCategory($category){
@@ -29,12 +45,12 @@ class Article
 
     //Getter/
 
-    public function getTitle(){
-        return $this->titre;
-    }
-
     public function getImg(){
         return $this->img;
+    }
+    
+    public function getTitle(){
+        return $this->title;
     }
 
     public function getCategory(){

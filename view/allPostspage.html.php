@@ -33,7 +33,8 @@
     
       <!--Section1-->
       <h2>All Posts</h2>
-      <?php foreach ($articles as $article): ?>
+      <?php 
+      foreach ($articles as $article): ?>
       <div class="section3">
         <div class="posts_prev">
           <img src="img/blanc.jpg" alt="">

@@ -3,8 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="view/css/bootstrap.css">
+    <link rel="stylesheet" href="view/css/style.css">
     <title>Homepage</title>
     <!--NavBar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,7 +37,7 @@
     <h1>CODING.</h1>
   </div>
   <div class="container">
-    <img src="img/Starting.PNG" class="img-fluid" alt="Responsive image">
+    <img src="view/img/Starting.PNG" class="img-fluid" alt="Responsive image">
   </div>
 </div>
 
@@ -45,7 +45,7 @@
     <h2>Who am I ?</h2>
     <div class="section2">
       <div class="container">
-        <img src="img/hipster.PNG" class="img-fluid" alt="Responsive image">
+        <img src="view/img/hipster.PNG" class="img-fluid" alt="Responsive image">
       </div>
       <div class="container">
         <p>BENEDDINE    Majid, &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp        21 years old <br>
@@ -86,15 +86,17 @@
       <!--Section3-->
       <h2>Recent Posts</h2>
       <div class="section3">
-        <div class="posts_prev">
-          <img src="img/blanc.jpg" alt="">
-        <p>ENTREPREUNARIAT</p>
-        <p>Comment développer un business durable et rentable</p>
-        <p>La chose la plus importante à savoir c'est que tout 
-          est une question de temps et d'organisation vous savez...
-        </p>
-        <div class="art_bar"></div>
-        </div>
+      <?php foreach ($articles as $article): ?>
+      <div class="posts_prev">
+      <img src="img/blanc.jpg" alt="">
+      <p><?= $article['category'] ?></p>
+      <p><?= $article['title'] ?></p>
+      <p><?= $article['text'] ?></p>
+      <div class="art_bar"></div>
+      </div>
+      <?php endforeach; ?>
+
+        ?>
         <div class="posts_prev">
             <img src="img/blanc.jpg" alt="">
           <p>ENTREPREUNARIAT</p>

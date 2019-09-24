@@ -1,5 +1,6 @@
 <?php
 require_once 'DatabaseConnexion.php';
+require_once 'Article.php';
 
 class ArticleManager {
     private $pdo;
@@ -35,4 +36,28 @@ class ArticleManager {
     $articles = $query->fetchAll();
     return $articles;
     }
+
+    public function findFour()
+    {
+    $query = $this->pdo->prepare("SELECT * FROM articles ORDER BY id DESC LIMIT 4");
+    // On exécute la requête en précisant le paramètre :article_id 
+    $query->execute();
+    // On fouille le résultat pour en extraire les données réelles de l'article
+    $articles = $query->fetchAll();
+    return $articles;
+    }
+
+    public function addPost(Article $article)
+    {
+        $query = $this->pdo->prepare('INSERT INTO articles(img, title, category, text, author) VALUES(:img, :title, :category, :text, :author)');
+        $query->bindValue(':img', $article->getImg(), PDO::PARAM_STR);
+        $query->bindValue(':title', $article->getTitle(), PDO::PARAM_STR);
+		$query->bindValue(':category', $article->getCategory(), PDO::PARAM_STR);
+        $query->bindValue(':text', $article->getText(), PDO::PARAM_STR);
+        $query->bindValue(':author', $article->getAuthor(), PDO::PARAM_STR);
+        $query->execute();
+        
+        //$req->execute(array($_POST['title'], $_POST['category'],  $_POST['author'],  $_POST['text']));
+    }
 }
+//var_dump($_POST); die;
