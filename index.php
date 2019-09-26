@@ -2,9 +2,8 @@
 
 require 'model/Article.php';
 require_once 'model/DatabaseConnexion.php';
-require_once 'model/utils.php';
 require_once 'model/ArticleManager.php';
-require_once 'controller/ArticleController.php';
+require_once 'controller/Controller.php';
 
 
 
@@ -20,10 +19,10 @@ try
 		{
 			$controller->$action();
 		}
-		else
+		/*else
 		{
 			throw new Exeption("Error Processing Request");
-		}
+		}*/
 	}
 	else
 	{
@@ -34,6 +33,10 @@ catch(Exeption $e)
 {
 	die('Erreur : '.$e->getMessage());
 }
+
+
+
+
 /*$articleManager = new ArticleManager;
 if (isset($_GET['article'])) {
     $article = $articleManager->find($_GET['article']);

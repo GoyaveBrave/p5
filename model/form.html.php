@@ -28,4 +28,24 @@ class Form{
     public function submit(){
         echo '<button type="submit" class="btn btn-success mb-2">Submit</button>';
     }
+
+    public function inputco($username) {
+        echo '<input class="form-control" type="text" name="' . $username . '" placeholder="username">';
+        }
+
+    public function inputco1($mail) {
+        
+          echo '<input type="email" id="inputEmail" class="form-control" name="' . $mail . '" placeholder="Email address" required autofocus>';
+          }
+
+    public function inputco2($password) {
+           echo '<label for="inputPassword" class="sr-only" >Password</label>
+           <input type="password" id="inputPassword" class="form-control" name="' . $password . '" placeholder="Password" required>';
+           }
+    public function inputco22($password2) {
+            echo '<input type="password" id="inputPassword" class="form-control" name="' . $password2 . '" placeholder="Repeat Password" required>';
+            }
+    public function submit1(){
+        echo '<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>';
+    }
 }

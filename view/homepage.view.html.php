@@ -1,34 +1,6 @@
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="view/css/bootstrap.css">
-    <link rel="stylesheet" href="view/css/style.css">
-    <title>Homepage</title>
-    <!--NavBar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a class="navbar-brand" href="#">Navbar</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarNav">
-<ul class="navbar-nav">
-  <li class="nav-item active">
-    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Blog</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Portfolio</a>
-  </li>
-  <li class="nav-item">
-    <button type="button" class="btn btn-primary">SignIn</button>
-  </li>
-</ul>
-</div>
-</nav>
+<?php require 'view/layout.html.php';
+      require 'model/Text.php';
+      require_once 'model/Article.php'; ?>
 
     <!--Section1-->
 <div class="section1">
@@ -85,28 +57,22 @@
       </div>
       <!--Section3-->
       <h2>Recent Posts</h2>
+      <?php
+      foreach ($articles as $article): ?>
       <div class="section3">
-      <?php foreach ($articles as $article): ?>
-      <div class="posts_prev">
-      <img src="img/blanc.jpg" alt="">
-      <p><?= $article['category'] ?></p>
-      <p><?= $article['title'] ?></p>
-      <p><?= $article['text'] ?></p>
-      <div class="art_bar"></div>
+        <div class="posts_prev">
+          <img src="view/img/blanc.jpg" alt="">
+        <p><?= $article->getCategory() ?></p>
+        <p><?= $article->getTitle() ?></p>
+        <p><?= nl2br(htmlentities(Text::excerpt($article->getText()))) ?></p>
+        <button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->id ?>'" type="button" class="btn btn-success">More</button>
+        <div class="art_bar"></div>
+        </div>
+        </div>
       </div>
       <?php endforeach; ?>
-
-        ?>
-        <div class="posts_prev">
-            <img src="img/blanc.jpg" alt="">
-          <p>ENTREPREUNARIAT</p>
-          <p>Comment développer un business durable et rentable</p>
-          <p>La chose la plus importante à savoir c'est que tout 
-            est une question de temps et d'organisation vous savez...
-          </p>
-          <div class="art_bar"></div>
-          </div>
-      </div>
+      <div class="container"><button onclick="location.href='index.php?action=viewAll'" type="button" class="btn btn-success mx-auto">ALL MY POSTS</button></div>
+      <div class="container"><button onclick="location.href='index.php?action=addPostView'" type="button" class="btn btn-success mx-auto">ADD NEW POST</button></div>
     <!--Section4-->
     <h2>My Works</h2>
     <div class="section4">
