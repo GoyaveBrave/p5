@@ -21,11 +21,31 @@ class Controller {
         $articles = $articleMana->findFour();
         require('view/homepage.view.html.php');
     }
+    public function adminView()
+    {
+            $adminV= new ArticleManager();
+            $articles = $adminV->findAll();
+            include 'view/adminView.html.php';
+    }
     public function viewId()
     {
             $manager = new ArticleManager();
             $article = $manager->find($_GET['article']);
-			require('View/postpage.html.php');
+			require('view/postpage.html.php');
+    }
+    public function delete($id)
+    {
+        if (!empty($_GET['article'])) 
+		{
+			$manager = new ArticleManager();
+			$manager->deleteid($id);
+			$controller = new Controller;
+			$controller->adminView();
+		}
+		else
+		{
+			echo "Error Processing Request";
+		}
     }
     public function viewAll()
     {
@@ -42,31 +62,33 @@ class Controller {
     public function signIn()
     {
         $signIn = new ArticleManager();
-		$result = $signIn->signIn();
+        $admin = new Admin();
+        $result = $signIn->signIn();
+        //var_dump($result); die;
 		$isPasswordCorrect = password_verify($_POST['password'], $result['password']);
-		if (!$result['mail']) 
+		if (!$result) 
 		{
-			$error = true;
-			$errorEmail = true;
+			var_dump($result); die;
 			echo "error1"; //('view/signinView.html.php');
 		}
 		else
 		{
 			if ($isPasswordCorrect) {
 				session_start();
-				$_SESSION['mail'] = htmlspecialchars($_POST['mail']);
+                $_SESSION['mail'] = htmlspecialchars($_POST['mail']);
 				require('view/adminView.html.php');
-				return $result;
-				return $isPasswordCorrect;
+				return;
 			}
 			else 
 			{
 				$error = true;
 				$errorPassword = true;
-				echo "error2"; //require('view/signinView.html.php');
+                echo "error2"; //require('view/signinView.html.php');
+                //var_dump($_POST); die;
 			}
 		}
     }
+
     public function signUpView()
     {
         $signUp = new ArticleManager();
@@ -81,7 +103,7 @@ class Controller {
 		'password' =>  $_POST['password'],
         ]);
         $manager->signUp($admin);
-        echo 'ok';
+        include 'view/signInView.html.php';
     }
 
     

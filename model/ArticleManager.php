@@ -11,6 +11,11 @@ class ArticleManager {
         $this->pdo = getPdo();
     }
 
+    public function deleteid($id)
+    {
+        $this->pdo->exec('DELETE FROM articles WHERE id = '.$id);
+    }
+
     public function find($id)
     {
     $id = (int) $id;
@@ -61,7 +66,7 @@ class ArticleManager {
         $query = $this->pdo->prepare('INSERT INTO admin(username, mail, password) VALUES(:username, :mail, :password)');
         $query->bindValue(':username', $admin->getUsername(), PDO::PARAM_STR);
         $query->bindValue(':mail', $admin->getMail(), PDO::PARAM_STR);
-		$query->bindValue(':password', $admin->getPassword(), PDO::PARAM_STR);
+		$query->bindValue(':password', $pass_hache, PDO::PARAM_STR);
         $query->execute();
     }
 
@@ -70,7 +75,8 @@ class ArticleManager {
         $query = $this->pdo->prepare('SELECT mail, password FROM admin WHERE mail = :mail');
 		$query->execute(array('mail' => $_POST['mail']));
 		$result = $query->fetch();
-		return $result;
+		return;
     }
+
 }
 //var_dump($_POST); die;

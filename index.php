@@ -9,6 +9,21 @@ require_once 'controller/Controller.php';
 
 $pdo = getPdo();
 
+
+
+/*	$controller = new Controller;
+	if(!empty($_SERVER['QUERY_STRING'])){
+	  $controller->index();
+	}
+	elseif (!empty($_GET['action'])){
+		if ($_GET['action'] == "delete" && (!empty($_GET['article']))){
+           $controller->delete($_GET['article']);
+		} 
+			
+	}
+
+*/
+
 try 
 	{
 	$controller = new Controller;
