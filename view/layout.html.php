@@ -24,6 +24,9 @@
     <a class="nav-link" href="#">Portfolio</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="index.php?action=contactView">Contact Us</a>
+  </li>
+  <li class="nav-item">
     <button onclick="location.href='index.php?action=signinView'" type="button" class="btn btn-success">SignIn</button>
   </li>
 </ul>

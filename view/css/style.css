@@ -211,3 +211,12 @@ h2 {
       
   }
 
+input {
+  margin-top: 3%;
+  outline: 0;
+  border-width: 0 0 2px;
+  border-color: black;
+}
+input:focus {
+  border-color: #19A26D;
+}

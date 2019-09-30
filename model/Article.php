@@ -4,7 +4,7 @@ $pdo = getPdo();
 class Article 
 {
     
-    private $img, $title, $category, $text, $author;
+    private $id, $img, $title, $category, $text, $author, $date;
 
     public $donnees = [];
     public function __construct($donnees = [])
@@ -27,9 +27,9 @@ class Article
     }
     //Setter /
     
-    /*public function setId($id){
+    public function setId($id){
         $this->id = $id; 
-    } */
+    } 
     public function setImg($img){
         $this->img = $img; 
     }
@@ -49,11 +49,15 @@ class Article
     public function setAuthor($author){
         $this->author = $author; 
     }
+    public function setDate($date){
+        $this->time = $date; 
+    }
+    
 
     //Getter/
-    /*public function getId(){
+    public function getId(){
         return $this->id;
-    } */
+    } 
     public function getImg(){
         return $this->img;
     }
@@ -72,5 +76,8 @@ class Article
 
     public function getAuthor(){
         return $this->author;
+    }
+    public function getDate(){
+        return $this->date;
     }
 }

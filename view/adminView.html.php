@@ -1,6 +1,7 @@
 <?php require 'layout.html.php';
 require 'model/Text.php';
 require_once 'model/Article.php';
+require_once 'model/Comments.php';
 ?>
 <link rel="stylesheet" href="view/css/bootstrap.css">
 <style>
@@ -58,7 +59,31 @@ require_once 'model/Article.php';
               <td><?= $article->getTitle() ?></td>
               <td><?= $article->getAuthor() ?></td>
               <td><?= $article->getCategory() ?></td>
-              <td>dolor</td>
+              <td><?= $article->getDate() ?></td>
+              <td><button onclick="location.href='index.php?action=editPostView&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-success">Edit</button>
+              <button onclick="location.href='index.php?action=delete&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-danger">Delete</button>
+            </td>
+            </tr>            
+          </tbody>
+          <?php endforeach; ?>
+        </table>
+
+        <h2 class="text-dark">Comments</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+        
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Content</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <?php foreach ($comments as $comment): var_dump($comments); die; ?>
+          <tbody>
+            <tr>
+              <td><?= $comment->getUsername() ?></td>
+              <td><?= nl2br(htmlentities(Text::excerptt($comment->getComments()))) ?></td>
               <td><button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->id ?>'" type="button" class="btn btn-success">Edit</button>
               <button onclick="location.href='index.php?action=delete&amp;article=<?=$article->id ?>'" type="button" class="btn btn-danger">Delete</button>
             </td>

@@ -2,6 +2,7 @@
 require_once 'DatabaseConnexion.php';
 require_once 'Article.php';
 require_once 'Admin.php';
+require_once 'Comments.php';
 
 class ArticleManager {
     private $pdo;
@@ -11,11 +12,21 @@ class ArticleManager {
         $this->pdo = getPdo();
     }
 
-    public function deleteid($id)
+    public function deleteid(Article $article)
     {
-        $this->pdo->exec('DELETE FROM articles WHERE id = '.$id);
+        $this->pdo->exec('DELETE FROM articles WHERE id = '.$article->getId());
     }
-
+    public function editPost(Article $article)
+    {
+        $query = $this->pdo->prepare('UPDATE articles SET img = :img, title = :title, category = :category, text = :text, author = :author, date = NOW() WHERE id = :id');
+        $query->bindValue(':id', $article->getId(), PDO::PARAM_STR);
+        $query->bindValue(':img', $article->getImg(), PDO::PARAM_STR);
+        $query->bindValue(':title', $article->getTitle(), PDO::PARAM_STR);
+		$query->bindValue(':category', $article->getCategory(), PDO::PARAM_STR);
+        $query->bindValue(':text', $article->getText(), PDO::PARAM_STR);
+        $query->bindValue(':author', $article->getAuthor(), PDO::PARAM_STR);
+        $query->execute();
+    }
     public function find($id)
     {
     $id = (int) $id;
@@ -28,6 +39,7 @@ class ArticleManager {
     return $data;
 
     }
+
     public function findAll()
     {
     $query = $this->pdo->prepare("SELECT * FROM articles" );
@@ -76,6 +88,24 @@ class ArticleManager {
 		$query->execute(array('mail' => $_POST['mail']));
 		$result = $query->fetch();
 		return;
+    }
+
+    public function addComment(Comment $comment)
+    {
+        $query = $this->pdo->prepare('INSERT INTO comments(username, comments, date) VALUES (:username, :comments, NOW())');
+        $query->bindValue(':username', $comment->getUsername(), PDO::PARAM_STR);
+        $query->bindValue(':comments', $comment->getComments(), PDO::PARAM_STR);
+        $query->execute();
+    }
+
+    public function commentView()
+    {
+    $query = $this->pdo->prepare("SELECT * FROM comments" );
+    // On exécute la requête en précisant le paramètre :article_id 
+    $query->execute();
+    // On fouille le résultat pour en extraire les données réelles de l'article
+    $comments = $query->fetchAll(PDO::FETCH_CLASS, Comment::class);
+    return $comments;
     }
 
 }

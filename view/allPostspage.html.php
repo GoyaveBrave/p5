@@ -12,7 +12,7 @@
         <p><?= $article->getCategory() ?></p>
         <p><?= $article->getTitle() ?></p>
         <p><?= nl2br(htmlentities(Text::excerpt($article->getText()))) ?></p>
-        <button onclick="location.href='index.php?action=articleController&amp;article=<?=$article->id ?>'" type="button" class="btn btn-success">More</button>
+        <button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-success">More</button>
         <div class="art_bar"></div>
         </div>
         </div>

@@ -1,0 +1,15 @@
+<?php 
+require 'view/layout.html.php';
+require_once 'model/form.html.php';
+require_once 'model/Admin.php';
+$form = new Form($_POST);
+?>
+
+<form class="container form-group" action="index.php?action=addComment" method="POST">
+  <label for="comment">Comment :</label>
+  <?php
+  echo $form->inputco3('comment');
+  echo $form->inputco('username');
+  echo $form->submit();
+  ?>
+</form> 

@@ -1,8 +1,11 @@
 <?php
 require_once 'model/Article.php';
 require_once 'model/Admin.php';
+require_once 'model/Comments.php';
 require_once 'model/DatabaseConnexion.php';
 require_once 'model/ArticleManager.php';
+require_once 'model/Contact.php';
+require_once 'model/FormManager.php';
 
 
 class Controller {
@@ -33,12 +36,34 @@ class Controller {
             $article = $manager->find($_GET['article']);
 			require('view/postpage.html.php');
     }
-    public function delete($id)
+    public function editPostView()
+    {
+            $manager = new ArticleManager();
+            $article = $manager->find($_GET['article']);
+			require('view/editView.html.php');
+    }
+    public function editPost()
+    {
+        $manager = new ArticleManager();
+        $article = new Article([
+        'id' => $_POST['id'],
+        'img' => $_POST['img'],
+        'title' => $_POST['title'],
+		'text' =>  $_POST['text'],
+        'category' =>  $_POST['category'],
+        'author' =>  $_POST['author']
+        ]);
+        $manager->editPost($article);
+        $controller = new Controller;
+        $controller->adminView();
+    }
+    public function delete()
     {
         if (!empty($_GET['article'])) 
 		{
-			$manager = new ArticleManager();
-			$manager->deleteid($id);
+            $manager = new ArticleManager();
+            $article = $manager->find($_GET['article']);
+			$manager->deleteid($article);
 			$controller = new Controller;
 			$controller->adminView();
 		}
@@ -128,5 +153,37 @@ class Controller {
         echo 'ok';
     }
 
-    
+    public function addCommentView()
+    {
+        $signIn = new ArticleManager();
+        include('view/addCommentView.html.php');
+    }
+
+    public function addComment()
+    {
+        $manager = new ArticleManager();
+        $comment = new Comment([
+        'comments' => $_POST['comment'],
+        'username' => $_POST['username']
+        ]);
+        $manager->addComment($comment);
+        echo 'ok';
+    }
+    public function contactView()
+    {
+        $contact = new ArticleManager();
+        include('view/contactFormView.html.php');
+    }
+    public function contactSend()
+    {
+        $contact = new FormManager();
+        $contactform = new Contact([
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'subject' => $_POST['subject'],
+            'message' => $_POST['message']
+        ]);
+        $contact->contactSend($contactform);
+        echo 'ok';
+    }
 }
