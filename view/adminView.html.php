@@ -79,7 +79,7 @@ require_once 'model/Comments.php';
               <th>Action</th>
             </tr>
           </thead>
-          <?php foreach ($comments as $comment): var_dump($comments); die; ?>
+          <?php foreach ($comments as $comment):  ?>
           <tbody>
             <tr>
               <td><?= $comment->getUsername() ?></td>
