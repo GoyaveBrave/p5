@@ -42,7 +42,7 @@ class ArticleManager {
 
     public function findAll()
     {
-    $query = $this->pdo->prepare("SELECT * FROM articles" );
+    $query = $this->pdo->prepare("SELECT * FROM articles");
     // On exécute la requête en précisant le paramètre :article_id 
     $query->execute();
     // On fouille le résultat pour en extraire les données réelles de l'article
@@ -87,14 +87,15 @@ class ArticleManager {
         $query = $this->pdo->prepare('SELECT mail, password FROM admin WHERE mail = :mail');
 		$query->execute(array('mail' => $_POST['mail']));
 		$result = $query->fetch();
-		return;
+		return $result;
     }
 
-    public function addComment(Comment $comment)
+    public function addComment(Comment $comment, $article_id)
     {
-        $query = $this->pdo->prepare('INSERT INTO comments(username, comments, date) VALUES (:username, :comments, NOW())');
+        $query = $this->pdo->prepare('INSERT INTO comments(username, comments, date, articles_id) VALUES (:username, :comments, NOW(), :$article_id)');
         $query->bindValue(':username', $comment->getUsername(), PDO::PARAM_STR);
         $query->bindValue(':comments', $comment->getComments(), PDO::PARAM_STR);
+        $query->bindValue(':article_id', $article_id, PDO::PARAM_INT);
         $query->execute();
     }
 
@@ -107,6 +108,15 @@ class ArticleManager {
     $comments = $query->fetchAll(PDO::FETCH_CLASS, Comment::class);
     return $comments;
     }
-
+    
+    public function findCommentsByArticleId($article_id)
+    {
+    $article_id = (int) $article_id;
+    $query = $this->pdo->query('SELECT * FROM comments WHERE articles_id='.$article_id);
+    // On exécute la requête en précisant le paramètre :article_id 
+    $query->execute();
+    $data = $query->fetchAll(PDO::FETCH_CLASS , Comment::class);
+    return $data;
+    }
 }
 //var_dump($_POST); die;

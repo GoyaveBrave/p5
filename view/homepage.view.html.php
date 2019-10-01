@@ -72,7 +72,6 @@
       </div>
       <?php endforeach; ?>
       <div class="container"><button onclick="location.href='index.php?action=viewAll'" type="button" class="btn btn-success mx-auto">ALL MY POSTS</button></div>
-      <div class="container"><button onclick="location.href='index.php?action=addPostView'" type="button" class="btn btn-success mx-auto">ADD NEW POST</button></div>
     <!--Section4-->
     <h2>My Works</h2>
     <div class="section4">

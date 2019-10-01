@@ -28,14 +28,17 @@ class Controller {
     {
             $adminV= new ArticleManager();
             $articles = $adminV->findAll();
+            $comments = $adminV->commentView();
             include 'view/adminView.html.php';
     }
     public function viewId()
     {
             $manager = new ArticleManager();
             $article = $manager->find($_GET['article']);
+            $comments = $manager->findCommentsByArticleId($_GET['article']);
 			require('view/postpage.html.php');
     }
+
     public function editPostView()
     {
             $manager = new ArticleManager();
@@ -93,7 +96,7 @@ class Controller {
 		$isPasswordCorrect = password_verify($_POST['password'], $result['password']);
 		if (!$result) 
 		{
-			var_dump($result); die;
+			
 			echo "error1"; //('view/signinView.html.php');
 		}
 		else
@@ -101,7 +104,9 @@ class Controller {
 			if ($isPasswordCorrect) {
 				session_start();
                 $_SESSION['mail'] = htmlspecialchars($_POST['mail']);
-				require('view/adminView.html.php');
+                $cont = new Controller;
+                $adminSection = $cont->adminView();
+				//include('index.php?action=adminView');
 				return;
 			}
 			else 
@@ -166,7 +171,7 @@ class Controller {
         'comments' => $_POST['comment'],
         'username' => $_POST['username']
         ]);
-        $manager->addComment($comment);
+        $manager->addComment($comment, $article_id);
         echo 'ok';
     }
     public function contactView()

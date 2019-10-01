@@ -1,4 +1,13 @@
-<?php require 'layout.html.php';
+ <?php 
+require_once 'model/Admin.php';
+if(Auth::isLogged()){
+
+}
+else{
+  $cont = new Controller;
+  $adminSection = $cont->adminView();
+}
+require 'layout.html.php';
 require 'model/Text.php';
 require_once 'model/Article.php';
 require_once 'model/Comments.php';
@@ -84,8 +93,8 @@ require_once 'model/Comments.php';
             <tr>
               <td><?= $comment->getUsername() ?></td>
               <td><?= nl2br(htmlentities(Text::excerptt($comment->getComments()))) ?></td>
-              <td><button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->id ?>'" type="button" class="btn btn-success">Edit</button>
-              <button onclick="location.href='index.php?action=delete&amp;article=<?=$article->id ?>'" type="button" class="btn btn-danger">Delete</button>
+              <td><button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-success">Edit</button>
+              <button onclick="location.href='index.php?action=delete&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-danger">Delete</button>
             </td>
             </tr>            
           </tbody>

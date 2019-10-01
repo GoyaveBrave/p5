@@ -54,3 +54,14 @@ class Admin
     }
 
 }
+
+class Auth {
+    static function isLogged(){
+        if(isset($_SESSION['mail'])){
+            return true;
+        }
+     else{
+         echo 'Va te connecter mec';
+     }
+}
+}
