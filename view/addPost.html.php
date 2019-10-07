@@ -1,10 +1,10 @@
 <?php 
-require 'view/layout.html.php';
 require_once 'model/form.html.php';
 $form = new Form($_POST);
+$titlee = 'Add a new Post';
 ?>
 
-<body>
+<?php ob_start(); ?>
 <div class="container-fluid bg-light mx-auto">
   <h1 class="d-flex justify-content-center pb-5 text-dark">Add your Post</h1>
 </div>
@@ -21,6 +21,5 @@ $form = new Form($_POST);
         //var_dump($form); die; */
         ?>
 </form>
-</body>
-
-</html>
+<?php $content = ob_get_clean(); ?>
+<?php require 'view/layout.html.php'; ?>

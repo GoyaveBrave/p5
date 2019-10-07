@@ -10,7 +10,7 @@ class Form{
 
     //ARTICLES AJOUT
     public function input($img) {
-        echo '<input class="form-control" type="text" name="' . $img . '" placeholder="Img">';
+        echo '<input class="form-control" type="file" name="' . $img . '" placeholder="Img">';
         }
 
     public function input1($title) {

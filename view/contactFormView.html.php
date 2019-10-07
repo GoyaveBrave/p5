@@ -1,8 +1,10 @@
-<?php require 'view/layout.html.php';
+<?php 
       require_once 'model/form.html.php';
       require_once 'model/Contact.php';
       $form = new Form($_POST);
-?>
+      $titlee = 'Contact Form';      
+      ?>
+  <?php ob_start(); ?>
 <div class="container-fluid bg-light mx-auto">
   <h1 class="d-flex justify-content-center pb-5 text-dark">Tell us !</h1>
 </div>
@@ -32,9 +34,8 @@
         <?= $form->submit2(); ?>
 
         </form>
-        <!-- Form -->
-
     </div>
 
 </div>
-<!-- Material form contact -->
+<?php $content = ob_get_clean(); ?>
+<?php require 'view/layout.html.php'; ?>

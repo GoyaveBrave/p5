@@ -48,15 +48,3 @@ catch(Exeption $e)
 {
 	die('Erreur : '.$e->getMessage());
 }
-
-
-
-
-/*$articleManager = new ArticleManager;
-if (isset($_GET['article'])) {
-    $article = $articleManager->find($_GET['article']);
-    include 'view/postpage.html.php';
-} else  {
-    $articles = $articleManager->findAll();
-    include 'view/allPostspage.html.php';
-} */

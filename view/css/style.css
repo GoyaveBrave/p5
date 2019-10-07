@@ -167,13 +167,7 @@ h2 {
     100% { width: 98%; background-color: #19A26D; }
   }
 
-  .section3 {
-      width: 100%;
-      padding: 40px 0 0;
-      display: flex;
-      justify-content: space-around;
-  }
-
+ 
   .posts_prev{
       width: 20%;
   }

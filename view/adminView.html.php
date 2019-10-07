@@ -1,17 +1,11 @@
  <?php 
 require_once 'model/Admin.php';
-if(Auth::isLogged()){
-
-}
-else{
-  $cont = new Controller;
-  $adminSection = $cont->adminView();
-}
-require 'layout.html.php';
 require 'model/Text.php';
 require_once 'model/Article.php';
 require_once 'model/Comments.php';
+$titlee = 'Dashboard - Admin';      
 ?>
+<?php ob_start(); ?>
 <link rel="stylesheet" href="view/css/bootstrap.css">
 <style>
       .bd-placeholder-img {
@@ -32,7 +26,6 @@ require_once 'model/Comments.php';
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
   </head>
-  <body>
       <!-- bouton signout <a class="nav-link" href="#">Sign out</a> !-->
     
 
@@ -44,7 +37,7 @@ require_once 'model/Comments.php';
         <div class="btn-group mr-2">
             <button onclick="location.href='index.php?action=addPostView'" type="button" class="btn btn-sm btn-outline-success">New Post</button>
           </div>
-          <button onclick="location.href='index.php?action=addPostView'" type="button" class="btn btn-sm btn-outline-danger">Sign Out</button>
+          <button onclick="location.href='index.php?action=signOut'" type="button" class="btn btn-sm btn-outline-danger">Sign Out</button>
         </div>
       </div>
 
@@ -71,6 +64,7 @@ require_once 'model/Comments.php';
               <td><?= $article->getDate() ?></td>
               <td><button onclick="location.href='index.php?action=editPostView&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-success">Edit</button>
               <button onclick="location.href='index.php?action=delete&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-danger">Delete</button>
+              <button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-primary">View</button>
             </td>
             </tr>            
           </tbody>
@@ -100,7 +94,26 @@ require_once 'model/Comments.php';
           </tbody>
           <?php endforeach; ?>
         </table>
+        <h2 class="text-dark">Comments Verify</h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+        
+          <?php foreach ($comments_verify as $comment):  ?>
+          <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><?= $comment->getUsername() ?></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><?=$comment->getDate()?></h6>
+    <p class="card-text"><?=$comment->getComments()?></p>
+    <h6 class="card-subtitle mb-2 text-muted"><?=$comment->getId()?></h6>
+    <a href="index.php?action=commentVerify&amp;article=<?=$comment->getId() ?>" class="card-link text-success">Accept</a>
+    <a href="index.php?action=deleteCom&amp;article=<?=$comment->getId() ?>" class="card-link text-danger">Refuse</a>
+  </div>
+</div>
+<?php endforeach; ?>
+      </div>
       </div>
     </main>
   </div>
 </div>
+<?php $content = ob_get_clean(); ?>
+<?php require 'view/layout.html.php'; ?>

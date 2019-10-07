@@ -61,7 +61,7 @@ class Auth {
             return true;
         }
      else{
-         echo 'Va te connecter mec';
+        echo 'CONNEXION REQUISE !';
      }
 }
 }

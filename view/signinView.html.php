@@ -1,8 +1,9 @@
-<?php require 'view/layout.html.php';
-      require_once 'model/form.html.php';
+<?php require_once 'model/form.html.php';
       require_once 'model/Admin.php';
       $form = new Form($_POST);
-?>
+      $titlee = 'Sign In';      
+      ?>
+  <?php ob_start(); ?>
 
 <style>
       .bd-placeholder-img {
@@ -23,7 +24,6 @@
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   </head>
-  <body class="text-center">
     <form class="container form-signin" action="index.php?action=signIn" method="POST">
   <img class="mb-4" src="view/img/login.png" alt="" width="72" height="72">
   <?php
@@ -40,5 +40,5 @@
   <a class="mt-5 mb-3 text-white" href="index.php?action=signUpView">Don't have an account yet ? Register here</a>
   <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 </form>
-</body>
-</html>
+<?php $content = ob_get_clean(); ?>
+<?php require 'view/layout.html.php'; ?>

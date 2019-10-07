@@ -1,7 +1,8 @@
-<?php require 'view/layout.html.php';
-      require 'model/Text.php';
-      require_once 'model/Article.php'; ?>
-
+<?php require 'model/Text.php';
+      require_once 'model/Article.php';
+      $titlee = 'Accueil - PHP/Symfony developer';      
+    ?>
+<?php ob_start(); ?>
     <!--Section1-->
 <div class="section1">
 
@@ -57,20 +58,27 @@
       </div>
       <!--Section3-->
       <h2>Recent Posts</h2>
+
+      <div class="row justify-content-around">
       <?php
+    
       foreach ($articles as $article): ?>
-      <div class="section3">
-        <div class="posts_prev">
-          <img src="view/img/blanc.jpg" alt="">
+      
+      
+        <div class="col">
+        <img src="view/img/hipster.png" alt="">
         <p><?= $article->getCategory() ?></p>
         <p><?= $article->getTitle() ?></p>
         <p><?= nl2br(htmlentities(Text::excerpt($article->getText()))) ?></p>
+        <p><?= $article->getDate() ?></p>
         <button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-success">More</button>
         <div class="art_bar"></div>
         </div>
         </div>
+        <?php endforeach; ?>
       </div>
-      <?php endforeach; ?>
+      
+      
       <div class="container"><button onclick="location.href='index.php?action=viewAll'" type="button" class="btn btn-success mx-auto">ALL MY POSTS</button></div>
     <!--Section4-->
     <h2>My Works</h2>
@@ -83,33 +91,6 @@
         </div>
     </div>
     <button class="but">PORTFOLIO</button>
-
-    
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn btn-primary">SignIn</button>
-        </li>
-      </ul>
-      </div>
-      </nav>
-  
-</head>
-<body>
-    
-</body>
-</html>
+      
+<?php $content = ob_get_clean(); ?>
+<?php require 'view/layout.html.php'; ?>

@@ -4,7 +4,7 @@ $pdo = getPdo();
 class Comment 
 {
     
-    private $username, $comments;
+    private $id, $username, $comments, $date;
 
     public $donnees = [];
     public function __construct($donnees = [])
@@ -26,6 +26,9 @@ class Comment
         }
     }
 //SETTER
+    public function setId($id){
+    $this->id = $id; 
+    }
 
     public function setUsername($username){
     $this->username = $username; 
@@ -34,12 +37,21 @@ class Comment
     public function setComments($comments){
         $this->comments = $comments;
     }
+    public function setDate($date){
+        $this->date = $username; 
+        }
 //GETTER
+    
+    public function getId(){
+    return $this->id;
+    }
     public function getComments(){
         return $this->comments;
     }
-
     public function getUsername(){
         return $this->username;
+    }
+    public function getDate(){
+        return $this->date;
     }
 }
