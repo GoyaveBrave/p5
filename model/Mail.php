@@ -18,21 +18,13 @@ $message = (new Swift_Message('Form My blog'))
 ->setFrom(['majid.web98@gmail.com' => 'Majid'])
 ->setTo(['majid.web98@gmail.com', 'other@domain.org' => 'A name'])
 ->setBody('Name = '.$contactform->getName().'
-           Name = '.$contactform->getEmail().'
-           Name = '.$contactform->getSubject().'
-           Name = '.$contactform->getMessage().'
+           Mail = '.$contactform->getEmail().'
+           Subject = '.$contactform->getSubject().'
+           Message = '.$contactform->getMessage().'
          ')
 ;
 
 // Send the message
 $result = $mailer->send($message);
-    }
-
-    public function send1(Contact $contactform)
-    {
-      mail("majid.web98@gmail.com",
-            "Test",
-            "Name = ".$contactform->getName().""
-    );
     }
 }

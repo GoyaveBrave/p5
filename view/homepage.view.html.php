@@ -59,14 +59,13 @@
       <!--Section3-->
       <h2>Recent Posts</h2>
 
-      <div class="row justify-content-around">
+      <div class="container-fluid w-85">
+      <div class="d-flex justify-content-around flex-wrap">
       <?php
     
       foreach ($articles as $article): ?>
-      
-      
-        <div class="col">
-        <img src="view/img/hipster.png" alt="">
+        <div class=" col-5 mt-5">
+        <img src="view/img/<?= $article->getImg() ?>" class="img-thumbnail w-25">
         <p><?= $article->getCategory() ?></p>
         <p><?= $article->getTitle() ?></p>
         <p><?= nl2br(htmlentities(Text::excerpt($article->getText()))) ?></p>
@@ -74,8 +73,8 @@
         <button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-success">More</button>
         <div class="art_bar"></div>
         </div>
-        </div>
         <?php endforeach; ?>
+      </div>
       </div>
       
       

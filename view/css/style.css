@@ -168,23 +168,11 @@ h2 {
   }
 
  
-  .posts_prev{
-      width: 20%;
-  }
-  .posts_prev img {
-      width: 100%;
-  }
 
   .art_bar {
     margin-top: 10%;
     border-bottom: 2px solid #19A26D;
     width: 10%;
-  }
-  .section4 {
-    width: 100%;
-    padding: 40px 0 0;
-    display: flex;
-    justify-content: space-around;
   }
 
   .work {

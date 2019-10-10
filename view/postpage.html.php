@@ -5,7 +5,7 @@ require_once 'model/Comments.php';
 require_once 'model/Article.php';
 require_once 'model/Text.php';
 $form = new Form($_POST);
-$titlee = 'Post';      
+$titlee = 'Single Post';      
 ?>
 <?php ob_start(); ?>
 
@@ -15,7 +15,7 @@ $titlee = 'Post';
 </div>
 
 <div class="container w-50 bg-light pb-3">
-  <img src="view/img/<?= $article->getImg() ?>" class="figure-img img-fluid rounded">
+  <img src="view/img/<?= $article->getImg() ?>" class="">
   <p class="lead text-black-50">"<?= nl2br(htmlentities(Text::excerpt($article->getText()))) ?>"</p>
   <p class="text-dark text-justify"><?= $article->getText(); ?></p>
   <p class="text-secondary"><?= $article->getCategory(); ?></p>
