@@ -1,5 +1,5 @@
 <?php
-
+namespace App\entity;
 class Text {
 
     public static function excerpt(string $content, int $limit = 60)

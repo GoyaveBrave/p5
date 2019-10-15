@@ -1,8 +1,7 @@
 <?php
-require_once 'DatabaseConnexion.php';
-require_once 'Article.php';
-require_once 'Admin.php';
-require_once 'Comments.php';
+namespace App\manager;
+require_once 'src/entity/Database.php';
+use App\entity\Connection;
 
 class ArticleManager {
     private $pdo;

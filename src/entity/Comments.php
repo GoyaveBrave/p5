@@ -1,4 +1,5 @@
 <?php
+namespace App\entity;
 require_once 'DatabaseConnexion.php';
 $pdo = getPdo();
 class Comment 
@@ -38,7 +39,7 @@ class Comment
         $this->comments = $comments;
     }
     public function setDate($date){
-        $this->date = $username; 
+        $this->date = $date; 
         }
 //GETTER
     

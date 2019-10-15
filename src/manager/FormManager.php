@@ -1,6 +1,7 @@
 <?php
-require_once 'DatabaseConnexion.php';
-require_once 'Contact.php';
+namespace App\manager;
+require 'class/Autoloader.php';
+Autoloader::register();
 
 class FormManager {
     private $pdo;

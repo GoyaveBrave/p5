@@ -1,8 +1,7 @@
 <?php
-require_once 'DatabaseConnexion.php';
-require_once 'Article.php';
-require_once 'Admin.php';
-
+namespace App\manager;
+require 'class/Autoloader.php';
+Autoloader::register();
 
 class Connection 
 {

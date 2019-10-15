@@ -1,8 +1,6 @@
  <?php 
-require_once 'model/Admin.php';
-require 'model/Text.php';
-require_once 'model/Article.php';
-require_once 'model/Comments.php';
+require 'model/Autoloader.php';
+Autoloader::register();
 $titlee = 'Dashboard - Admin';      
 ?>
 <?php ob_start(); ?>

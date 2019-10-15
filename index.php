@@ -1,50 +1,41 @@
 <?php
+require 'vendor/autoload.php';
+use App\controller\AdminController;
+use App\controller\ArticleController;
+use App\controller\ContactFormController;
+use App\entity\Database;
+Database::getPdo();
+//$pdoo = getPdo();
 
-require 'model/Article.php';
-require_once 'model/DatabaseConnexion.php';
-require_once 'model/ArticleManager.php';
-require_once 'controller/Controller.php';
-
-
-
-$pdo = getPdo();
-
-
-
-/*	$controller = new Controller;
-	if(!empty($_SERVER['QUERY_STRING'])){
-	  $controller->index();
-	}
-	elseif (!empty($_GET['action'])){
-		if ($_GET['action'] == "delete" && (!empty($_GET['article']))){
-           $controller->delete($_GET['article']);
-		} 
-			
-	}
-
-*/
-
+/*
 try 
 	{
-	$controller = new Controller;
+	$controller0 = new AdminController;
+	$controller1= new ArticleController;
+	$controller2 = new ContactFormController;
 	if(!empty($_GET['action']))
 	{
 		$action = $_GET['action'];
-		if (method_exists($controller, $action))
+		if (method_exists($controller0, $action))
 		{
 			$controller->$action();
 		}
-		/*else
+		elseif (method_exists($controller1, $action))
 		{
-			throw new Exeption("Error Processing Request");
-		}*/
+			$controller->$action();
+		}
+		elseif (method_exists($controller2, $action))
+		{
+			$controller->$action();
+		}
 	}
 	else
 	{
-		$controller->index();
+		$controller0->index();
 	}
 }
 catch(Exeption $e)
 {
 	die('Erreur : '.$e->getMessage());
 }
+*/

@@ -1,4 +1,6 @@
-<?php require_once 'vendor/autoload.php';
+<?php
+namespace App\entity;
+ require_once 'vendor/autoload.php';
 
 class Mail
 {

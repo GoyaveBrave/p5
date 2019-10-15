@@ -1,4 +1,7 @@
 <?php
+
+namespace App\entity;
+
 require_once 'DatabaseConnexion.php';
 $pdo = getPdo();
 class Admin 

@@ -1,6 +1,6 @@
 <?php 
 
-
+namespace App\entity;
 class Form{
 
     private $data;
