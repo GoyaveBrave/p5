@@ -12,6 +12,19 @@ class ComposerStaticInita02f6aed85a43b4524b89a5ea5fee336
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '776e3b46adda9b62666710decbcfe3a2' => __DIR__ . '/../..' . '/src/controller/AdminController.php',
+        'f442fea79fd56758d9f409c0d2eaef1a' => __DIR__ . '/../..' . '/src/controller/ArticleController.php',
+        '53b655b27a5e8b3c8cd95db8d5da3868' => __DIR__ . '/../..' . '/src/controller/ContactFormController.php',
+        '2345bb399e11636a0279a6cd854c7b9c' => __DIR__ . '/../..' . '/src/entity/Admin.php',
+        '4e9d2141da77ff227a83a0c47eea6f99' => __DIR__ . '/../..' . '/src/entity/Article.php',
+        '6e3616bb831d993acd6c56b424f31eb1' => __DIR__ . '/../..' . '/src/entity/Comments.php',
+        '0319ef64a56da65d3d42c08e1228e017' => __DIR__ . '/../..' . '/src/entity/Contact.php',
+        '7ec8fa71513cfa0dc78f01472efe2efd' => __DIR__ . '/../..' . '/src/entity/Form.php',
+        '01be64ec405972b15deb02a61b03416f' => __DIR__ . '/../..' . '/src/entity/Mail.php',
+        'a1b9c317a1b3408a89ef7ab5b061009c' => __DIR__ . '/../..' . '/src/entity/Text.php',
+        '34aa91a62b2a9e2618fd021939ff150a' => __DIR__ . '/../..' . '/src/manager/ArticleManager.php',
+        '93ed57057c2904c6c29b463325c22906' => __DIR__ . '/../..' . '/src/manager/ConnectionManager.php',
+        '7fa0ff26ec9d67e3aa91303eac7c3b72' => __DIR__ . '/../..' . '/src/manager/FormManager.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -76,6 +89,7 @@ class ComposerStaticInita02f6aed85a43b4524b89a5ea5fee336
         'App\\entity\\Auth' => __DIR__ . '/../..' . '/src/entity/Admin.php',
         'App\\entity\\Comment' => __DIR__ . '/../..' . '/src/entity/Comments.php',
         'App\\entity\\Contact' => __DIR__ . '/../..' . '/src/entity/Contact.php',
+        'App\\entity\\Database' => __DIR__ . '/../..' . '/src/entity/Database.php',
         'App\\entity\\Form' => __DIR__ . '/../..' . '/src/entity/Form.php',
         'App\\entity\\Mail' => __DIR__ . '/../..' . '/src/entity/Mail.php',
         'App\\entity\\Text' => __DIR__ . '/../..' . '/src/entity/Text.php',

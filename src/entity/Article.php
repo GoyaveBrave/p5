@@ -1,8 +1,8 @@
 <?php
-
 namespace App\entity;
-require_once 'DatabaseConnexion.php';
-$pdo = getPdo();
+use App\entity\Database;
+$pdo = Database::getPdo();
+
 class Article 
 {
     

@@ -14,6 +14,7 @@ return array(
     'App\\entity\\Auth' => $baseDir . '/src/entity/Admin.php',
     'App\\entity\\Comment' => $baseDir . '/src/entity/Comments.php',
     'App\\entity\\Contact' => $baseDir . '/src/entity/Contact.php',
+    'App\\entity\\Database' => $baseDir . '/src/entity/Database.php',
     'App\\entity\\Form' => $baseDir . '/src/entity/Form.php',
     'App\\entity\\Mail' => $baseDir . '/src/entity/Mail.php',
     'App\\entity\\Text' => $baseDir . '/src/entity/Text.php',

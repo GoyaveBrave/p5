@@ -1,13 +1,11 @@
 <?php
 require 'vendor/autoload.php';
+use App\entity\Database;
 use App\controller\AdminController;
 use App\controller\ArticleController;
 use App\controller\ContactFormController;
-use App\entity\Database;
 Database::getPdo();
-//$pdoo = getPdo();
 
-/*
 try 
 	{
 	$controller0 = new AdminController;
@@ -18,15 +16,15 @@ try
 		$action = $_GET['action'];
 		if (method_exists($controller0, $action))
 		{
-			$controller->$action();
+			$controller0->$action();
 		}
 		elseif (method_exists($controller1, $action))
 		{
-			$controller->$action();
+			$controller1->$action();
 		}
 		elseif (method_exists($controller2, $action))
 		{
-			$controller->$action();
+			$controller2->$action();
 		}
 	}
 	else
@@ -38,4 +36,3 @@ catch(Exeption $e)
 {
 	die('Erreur : '.$e->getMessage());
 }
-*/

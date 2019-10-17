@@ -1,7 +1,9 @@
 <?php
 namespace App\controller;
 use App\entity\Article;
-
+use App\entity\Database;
+use App\manager\ArticleManager;
+use App\entity\Comment;
 class ArticleController
 {
     //DB connexion
@@ -9,7 +11,7 @@ class ArticleController
 
     public function __construct()
     {
-        $this->pdo = getPdo();
+        $this->pdo = Database::getPdo();
     }
 
     //ARTICLE
@@ -36,15 +38,15 @@ class ArticleController
     {
         $manager = new ArticleManager();
         $article = new Article([
-            'id' => $_POST['id'],
-            'img' => $_POST['img'],
-            'title' => $_POST['title'],
-            'text' =>  $_POST['text'],
-            'category' =>  $_POST['category'],
-            'author' =>  $_POST['author']
+            'id' => htmlentities($_POST['id']),
+            'img' => htmlentities($_POST['img']),
+            'title' => htmlentities($_POST['title']),
+            'text' =>  htmlentities($_POST['text']),
+            'category' =>  htmlentities($_POST['category']),
+            'author' =>  htmlentities($_POST['author'])
         ]);
         $manager->editPost($article);
-        $controller = new Controller;
+        $controller = new AdminController;
         $controller->adminView();
     }
     public function delete()
@@ -53,7 +55,7 @@ class ArticleController
             $manager = new ArticleManager();
             $article = $manager->find($_GET['article']);
             $manager->deleteid($article);
-            $controller = new Controller;
+            $controller = new AdminController;
             $controller->adminView();
         } else {
             echo "Error Processing Request";
@@ -68,14 +70,14 @@ class ArticleController
     {
         $manager = new ArticleManager();
         $article = new Article([
-            'img' => $_POST['img'],
-            'title' => $_POST['title'],
-            'text' =>  $_POST['text'],
-            'category' =>  $_POST['category'],
-            'author' =>  $_POST['author']
+            'img' => htmlentities($_POST['img']),
+            'title' => htmlentities($_POST['title']),
+            'text' =>  htmlentities($_POST['text']),
+            'category' =>  htmlentities($_POST['category']),
+            'author' =>  htmlentities($_POST['author'])
         ]);
         $manager->addPost($article);
-        $controller = new Controller();
+        $controller = new AdminController();
         $controller->adminView();
     }
 
@@ -95,8 +97,8 @@ class ArticleController
     {
         $manager = new ArticleManager();
         $comment = new Comment([
-            'comments' => $_POST['comment'],
-            'username' => $_POST['username']
+            'comments' => htmlentities($_POST['comment']),
+            'username' => htmlentities($_POST['username'])
         ]);
         $manager->addComment($comment, $_GET['article']);
         echo 'ok';

@@ -22,23 +22,20 @@ if($status == PHP_SESSION_NONE){
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="btn nav-link" href="index.php?action=index">Home<span class="sr-only">(current)</span></a>
+                <a class="btn nav-link" href="Home">Home<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php?action=viewAll">Blog</a>
+                <a class="nav-link" href="All-Posts">Blog</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.php?action=contactView">Contact</a>
+                <a class="nav-link" href="Contact">Contact</a>
               </li>
               </div>
               <?php if(isset($_SESSION['mail'])){
-                echo '<a href="index.php?action=adminView" class="btn btn-success" role="button">Dashboard</a>';
+                echo '<a href="Dashboard" class="btn btn-success" role="button">Dashboard</a>';
                    }
                      else {
-                           echo '<a href="index.php?action=signinView" class="btn btn-success justify-content-end" role="button">Sign In</a>';
+                           echo '<a href="Sign-In" class="btn btn-success justify-content-end" role="button">Sign In</a>';
                   } ?>
               </nav>
 <?= $content ?>

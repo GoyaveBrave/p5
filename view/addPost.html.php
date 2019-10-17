@@ -1,5 +1,5 @@
 <?php 
-require_once 'model/form.html.php';
+use App\entity\Form; 
 $form = new Form($_POST);
 $titlee = 'Add a new Post';
 ?>
@@ -22,4 +22,3 @@ $titlee = 'Add a new Post';
         ?>
 </form>
 <?php $content = ob_get_clean(); ?>
-<?php require 'view/layout.html.php'; ?>

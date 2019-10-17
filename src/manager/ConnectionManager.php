@@ -1,7 +1,7 @@
 <?php
 namespace App\manager;
-require 'class/Autoloader.php';
-Autoloader::register();
+use App\entity\Database;
+use App\entity\Admin;
 
 class Connection 
 {
@@ -9,7 +9,7 @@ class Connection
 
     public function __construct()
     {
-        $this->pdo = getPdo();
+        $this->pdo = Database::getPdo();
     }
 
 
@@ -18,9 +18,9 @@ class Connection
         $pass_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $query = $this->pdo->prepare('INSERT INTO admin(username, mail, password) VALUES(:username, :mail, :password)');
-        $query->bindValue(':username', $admin->getUsername(), PDO::PARAM_STR);
-        $query->bindValue(':mail', $admin->getMail(), PDO::PARAM_STR);
-		$query->bindValue(':password', $pass_hache, PDO::PARAM_STR);
+        $query->bindValue(':username', $admin->getUsername(), \PDO::PARAM_STR);
+        $query->bindValue(':mail', $admin->getMail(), \PDO::PARAM_STR);
+		$query->bindValue(':password', $pass_hache, \PDO::PARAM_STR);
         $query->execute();
     }
 

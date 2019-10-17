@@ -3,6 +3,26 @@
         "swiftmailer/swiftmailer": "^6.0"
     },
     "autoload": {
+        "files": [
+            "src/controller/AdminController.php",
+            "src/controller/ArticleController.php",
+            "src/controller/ContactFormController.php",
+            "src/entity/Admin.php",
+            "src/entity/Article.php",
+            "src/entity/Comments.php",
+            "src/entity/Contact.php",
+            "src/entity/Form.php",
+            "src/entity/Mail.php",
+            "src/entity/Text.php",
+            "src/manager/ArticleManager.php",
+            "src/manager/ConnectionManager.php",
+            "src/manager/FormManager.php"
+        ],
+        "classmap": [
+            "src/controller",
+            "src/entity"
+
+        ],
         "psr-4": {
             "App\\": "src"
         }

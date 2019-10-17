@@ -1,5 +1,5 @@
-<?php require_once 'model/Text.php';
-      require_once 'model/Article.php';
+<?php use App\entity\Text;
+      use App\entity\Database;
       $titlee = 'All Posts';      
     ?>
 <?php ob_start(); ?>

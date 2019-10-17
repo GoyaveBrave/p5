@@ -1,0 +1,16 @@
+Options +FollowSymlinks
+RewriteEngine on 
+
+RewriteRule ^Home$ index.php?action=index [L]
+RewriteRule ^All-Posts$ index.php?action=viewAll [L]
+RewriteRule ^Contact$ index.php?action=contactView [L]
+RewriteRule ^Dashboard$ index.php?action=adminView [L]
+RewriteRule ^Sign-In$ index.php?action=signinView [L]
+RewriteRule ^Connection$ index.php?action=signIn [L]
+RewriteRule ^Register$ index.php?action=signUpView [L]
+RewriteRule ^Sign-Up$ index.php?action=signUp [L]
+RewriteRule ^Add-Post$ index.php?action=addPostView [L]
+RewriteRule ^Deconnection$ index.php?action=signOut [L]
+RewriteRule ^SendMail$ index.php?action=contactSend [L]
+# RewriteRule ^Edit-Post-([0-9]+)$ index.php?action=editPostView&amp;article=$1 [L]
+# RewriteRule ^Post-article=([0-9]+)$ index.php?action=viewId&amp;$1 [L]

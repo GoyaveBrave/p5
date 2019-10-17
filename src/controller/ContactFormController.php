@@ -1,5 +1,5 @@
 <?php namespace App\controller; 
-
+use App\entity\{Database, Mail, Contact};
 class ContactFormController
 {
 
@@ -8,7 +8,7 @@ class ContactFormController
 
     public function __construct()
     {
-        $this->pdo = getPdo();
+        $this->pdo = Database::getPdo();
     }
 
     //CONTACT FORM
@@ -21,12 +21,13 @@ class ContactFormController
     {
         $mail = new Mail();
         $contactform = new Contact([
-            'name' => $_POST['name'],
-            'email' => $_POST['email'],
-            'subject' => $_POST['subject'],
-            'message' => $_POST['message']
+            'name' => htmlentities($_POST['name']),
+            'email' => htmlentities($_POST['email']),
+            'subject' => htmlentities($_POST['subject']),
+            'message' => htmlentities($_POST['message'])
         ]);
         $mail->send($contactform);
-        echo 'ok';
+        $controller = new AdminController;
+        $home = $controller->index();
     }
 }

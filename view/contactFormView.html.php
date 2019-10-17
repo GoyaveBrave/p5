@@ -1,6 +1,7 @@
 <?php 
-      require_once 'model/form.html.php';
-      require_once 'model/Contact.php';
+      //require_once 'model/form.html.php';
+      //require_once 'model/Contact.php';
+      use App\entity\Form;
       $form = new Form($_POST);
       $titlee = 'Contact Form';      
       ?>
@@ -19,7 +20,7 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form class="text-center" style="color: #757575;" action="index.php?action=contactSend" method="POST">
+        <form class="text-center" style="color: #757575;" action="SendMail" method="POST">
         
         <div class="md-form mt-3"> <label for="materialContactFormName">Name</label>
         <?= $form->inputfo('name'); ?>

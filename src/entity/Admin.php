@@ -1,9 +1,6 @@
 <?php
-
 namespace App\entity;
-
-require_once 'DatabaseConnexion.php';
-$pdo = getPdo();
+$pdo = Database::getPdo();
 class Admin 
 {
     

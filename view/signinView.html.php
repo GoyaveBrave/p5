@@ -1,5 +1,5 @@
-<?php require_once 'model/form.html.php';
-      require_once 'model/Admin.php';
+<?php 
+      use App\entity\Form;
       $form = new Form($_POST);
       $titlee = 'Sign In';      
       ?>
@@ -24,7 +24,7 @@
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   </head>
-    <form class="container form-signin" action="index.php?action=signIn" method="POST">
+    <form class="container form-signin" action="Connection" method="POST">
   <img class="mb-4" src="view/img/login.png" alt="" width="72" height="72">
   <?php
         echo $form->inputco('username');
@@ -37,7 +37,7 @@
       <input type="checkbox" value="remember-me"> Remember me
     </label>
   </div>
-  <a class="mt-5 mb-3 text-white" href="index.php?action=signUpView">Don't have an account yet ? Register here</a>
+  <a class="mt-5 mb-3 text-white" href="Register">Don't have an account yet ? Register here</a>
   <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 </form>
 <?php $content = ob_get_clean(); ?>

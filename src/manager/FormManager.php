@@ -1,7 +1,5 @@
 <?php
 namespace App\manager;
-require 'class/Autoloader.php';
-Autoloader::register();
 
 class FormManager {
     private $pdo;

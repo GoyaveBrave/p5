@@ -1,8 +1,6 @@
 <?php
-require_once 'model/Article.php';
-require_once 'model/Text.php';
-require_once 'model/Admin.php';
-require_once 'model/form.html.php';
+use App\entity\Form;
+use App\entity\Text;
 $form = new Form($_POST);
 $titlee = 'Edit Post';      
 ?>

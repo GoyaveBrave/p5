@@ -1,8 +1,9 @@
 <?php
 
 namespace App\controller;
-
-use App\manager\ConnectionManager;
+use App\entity\Database;
+use App\entity\Admin;
+use App\manager\Connection;
 use App\manager\ArticleManager;
 
 session_start();
@@ -15,7 +16,7 @@ class AdminController
 
     public function __construct()
     {
-        $this->pdo = getPdo();
+        $this->pdo = Database::getPdo();
     }
     //HOME PAGE
     public function index()
@@ -55,7 +56,7 @@ class AdminController
         } else {
             if ($isPasswordCorrect) {
                 $_SESSION['mail'] = htmlspecialchars($_POST['mail']);
-                $cont = new Controller;
+                $cont = new AdminController;
                 $adminSection = $cont->adminView();
                 return;
             } else {
@@ -69,7 +70,7 @@ class AdminController
     {
         $signOut = new Connection();
         $signOut->Destroy();
-        $controller = new Controller;
+        $controller = new AdminController;
         $controller->index();
     }
     public function signUpView()

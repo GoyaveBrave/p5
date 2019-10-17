@@ -1,6 +1,5 @@
  <?php 
-require 'model/Autoloader.php';
-Autoloader::register();
+      use App\entity\Text;
 $titlee = 'Dashboard - Admin';      
 ?>
 <?php ob_start(); ?>
@@ -33,9 +32,9 @@ $titlee = 'Dashboard - Admin';
         <h1 class="h2">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
         <div class="btn-group mr-2">
-            <button onclick="location.href='index.php?action=addPostView'" type="button" class="btn btn-sm btn-outline-success">New Post</button>
+            <button onclick="location.href='Add-Post'" type="button" class="btn btn-sm btn-outline-success">New Post</button>
           </div>
-          <button onclick="location.href='index.php?action=signOut'" type="button" class="btn btn-sm btn-outline-danger">Sign Out</button>
+          <button onclick="location.href='Deconnection'" type="button" class="btn btn-sm btn-outline-danger">Sign Out</button>
         </div>
       </div>
 
@@ -60,7 +59,7 @@ $titlee = 'Dashboard - Admin';
               <td><?= $article->getAuthor() ?></td>
               <td><?= $article->getCategory() ?></td>
               <td><?= $article->getDate() ?></td>
-              <td><button onclick="location.href='index.php?action=editPostView&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-success">Edit</button>
+              <td><button onclick="location.href='Post-<?=$article->getId() ?>'" type="button" class="btn btn-success">Edit</button>
               <button onclick="location.href='index.php?action=delete&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-danger">Delete</button>
               <button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-primary">View</button>
             </td>
@@ -114,4 +113,4 @@ $titlee = 'Dashboard - Admin';
   </div>
 </div>
 <?php $content = ob_get_clean(); ?>
-<?php require 'view/layout.html.php'; ?>
+<?php require'view/layout.html.php'; ?>
