@@ -33,7 +33,7 @@ class Form{
    
     //ADMIN
     public function inputco($username) {
-        echo '<input class="form-control" type="text" name="' . $username . '" placeholder="username">';
+        echo '<input class="form-control" type="text" name="' . $username . '" placeholder="username" required>';
         }
 
     public function inputco1($mail) {
@@ -43,10 +43,10 @@ class Form{
 
     public function inputco2($password) {
            echo '<label for="inputPassword" class="sr-only" >Password</label>
-           <input type="password" id="inputPassword" class="form-control" name="' . $password . '" placeholder="Password" required>';
+           <input type="password" id="password"" class="form-control" name="' . $password . '" placeholder="Password" required>';
            }
     public function inputco22($password2) {
-            echo '<input type="password" id="inputPassword" class="form-control" name="' . $password2 . '" placeholder="Repeat Password" required>';
+            echo '<input type="password" id="confirm_password" class="form-control" name="' . $password2 . '" placeholder="Repeat Password" required>';
             }
     public function inputco3($comments) {
         echo '<textarea class="form-control" rows="5" name="' . $comments . '"></textarea>';

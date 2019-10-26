@@ -28,11 +28,19 @@
         echo $form->inputco22('password2');
         echo $form->submit1();
     ?>
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
+  <script>var password = document.getElementById("password")
+, confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+if(password.value != confirm_password.value) {
+  confirm_password.setCustomValidity("Faites corresspondre les mots de passe");
+} else {
+  confirm_password.setCustomValidity('');
+}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;</script>
   <a class="mt-5 mb-3 text-white" href="Connection">Already have an account ? Sign In here</a>
   <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 </form>

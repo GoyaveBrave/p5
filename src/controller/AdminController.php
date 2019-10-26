@@ -36,9 +36,9 @@ class AdminController
             $comments_verify = $adminC->commentVerifyView();
             require('view/adminView.html.php');
         } else {
-            $cont = new Controller;
+            $cont = new AdminController;
             $adminSection = $cont->signInView();
-            echo 'CONNEXION REQUISE';
+            echo "<script> alert('ACCES LIMITE : CONNEXION REQUISE'); </script>";
         }
     }
     public function signInView()
@@ -55,7 +55,9 @@ class AdminController
         $result = $signIn->signIn();
         $isPasswordCorrect = password_verify($_POST['password'], $result['password']);
         if (!$result) {
-            echo "error1";
+            $error1 = new AdminController;
+            $error11 = $error1->signInView();
+            echo "<script> alert('Aucun compte ne correspond à ces informations'); </script>";
         } else {
             if ($isPasswordCorrect) {
                 $_SESSION['mail'] = htmlspecialchars($_POST['mail']);
@@ -65,7 +67,9 @@ class AdminController
             } else {
                 $error = true;
                 $errorPassword = true;
-                echo "error2";
+                $error1 = new AdminController;
+                $error11 = $error1->signInView();
+                echo "<script> alert('Mot de passe erroné'); </script>";
             }
         }
     }
@@ -93,6 +97,8 @@ class AdminController
             'password' =>  $_POST['password'],
         ]);
         $manager->signUp($admin);
-        include 'view/signInView.html.php';
+        $registered = new AdminController();
+        $registered->signInView();
+        
     }
 }
