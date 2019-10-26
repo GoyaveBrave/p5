@@ -1,6 +1,5 @@
  <?php 
-      use App\entity\Text;
-$titlee = 'Dashboard - Admin';      
+      use App\entity\Text;      
 ?>
 <?php ob_start(); ?>
 <link rel="stylesheet" href="view/css/bootstrap.css">
@@ -59,7 +58,7 @@ $titlee = 'Dashboard - Admin';
               <td><?= $article->getAuthor() ?></td>
               <td><?= $article->getCategory() ?></td>
               <td><?= $article->getDate() ?></td>
-              <td><button onclick="location.href='Post-<?=$article->getId() ?>'" type="button" class="btn btn-success">Edit</button>
+              <td><button onclick="location.href='Edit-<?=$article->getId() ?>'" type="button" class="btn btn-success">Edit</button>
               <button onclick="location.href='index.php?action=delete&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-danger">Delete</button>
               <button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-primary">View</button>
             </td>
@@ -84,8 +83,7 @@ $titlee = 'Dashboard - Admin';
             <tr>
               <td><?= $comment->getUsername() ?></td>
               <td><?= nl2br(htmlentities(Text::excerptt($comment->getComments()))) ?></td>
-              <td><button onclick="location.href='index.php?action=viewId&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-success">Edit</button>
-              <button onclick="location.href='index.php?action=delete&amp;article=<?=$article->getId() ?>'" type="button" class="btn btn-danger">Delete</button>
+              <td><button onclick="location.href='index.php?action=deleteComment&amp;article=<?=$comment->getId() ?>'" type="button" class="btn btn-danger">Delete</button>
             </td>
             </tr>            
           </tbody>
@@ -102,8 +100,8 @@ $titlee = 'Dashboard - Admin';
     <h6 class="card-subtitle mb-2 text-muted"><?=$comment->getDate()?></h6>
     <p class="card-text"><?=$comment->getComments()?></p>
     <h6 class="card-subtitle mb-2 text-muted"><?=$comment->getId()?></h6>
+    <a href="index.php?action=deleteComment&amp;article=<?=$comment->getId() ?>" class="card-link text-danger">Refuse</a>
     <a href="index.php?action=commentVerify&amp;article=<?=$comment->getId() ?>" class="card-link text-success">Accept</a>
-    <a href="index.php?action=deleteCom&amp;article=<?=$comment->getId() ?>" class="card-link text-danger">Refuse</a>
   </div>
 </div>
 <?php endforeach; ?>

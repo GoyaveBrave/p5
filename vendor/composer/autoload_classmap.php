@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\controller\\AdminController' => $baseDir . '/src/controller/AdminController.php',
     'App\\controller\\ArticleController' => $baseDir . '/src/controller/ArticleController.php',
+    'App\\controller\\CommentController' => $baseDir . '/src/controller/CommentController.php',
     'App\\controller\\ContactFormController' => $baseDir . '/src/controller/ContactFormController.php',
     'App\\entity\\Admin' => $baseDir . '/src/entity/Admin.php',
     'App\\entity\\Article' => $baseDir . '/src/entity/Article.php',
@@ -19,6 +20,7 @@ return array(
     'App\\entity\\Mail' => $baseDir . '/src/entity/Mail.php',
     'App\\entity\\Text' => $baseDir . '/src/entity/Text.php',
     'App\\manager\\ArticleManager' => $baseDir . '/src/manager/ArticleManager.php',
+    'App\\manager\\CommentManager' => $baseDir . '/src/manager/CommentManager.php',
     'App\\manager\\Connection' => $baseDir . '/src/manager/ConnectionManager.php',
     'App\\manager\\FormManager' => $baseDir . '/src/manager/FormManager.php',
     'Doctrine\\Common\\Lexer\\AbstractLexer' => $vendorDir . '/doctrine/lexer/lib/Doctrine/Common/Lexer/AbstractLexer.php',

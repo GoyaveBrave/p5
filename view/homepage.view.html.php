@@ -1,10 +1,4 @@
-<?php
-
-use App\entity\Text;
-use App\entity\Article;
-
-$titlee = 'Accueil - PHP/Symfony developer';
-?>
+<?php use App\entity\Text; ?>
 <?php ob_start(); ?>
 <!--Section1-->
 <div class="section1">

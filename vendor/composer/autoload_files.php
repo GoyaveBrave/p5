@@ -14,6 +14,7 @@ return array(
     '776e3b46adda9b62666710decbcfe3a2' => $baseDir . '/src/controller/AdminController.php',
     'f442fea79fd56758d9f409c0d2eaef1a' => $baseDir . '/src/controller/ArticleController.php',
     '53b655b27a5e8b3c8cd95db8d5da3868' => $baseDir . '/src/controller/ContactFormController.php',
+    '70bfe55a36ebd66bb22e2af19ee91657' => $baseDir . '/src/controller/CommentController.php',
     '2345bb399e11636a0279a6cd854c7b9c' => $baseDir . '/src/entity/Admin.php',
     '4e9d2141da77ff227a83a0c47eea6f99' => $baseDir . '/src/entity/Article.php',
     '6e3616bb831d993acd6c56b424f31eb1' => $baseDir . '/src/entity/Comments.php',
@@ -24,4 +25,5 @@ return array(
     '34aa91a62b2a9e2618fd021939ff150a' => $baseDir . '/src/manager/ArticleManager.php',
     '93ed57057c2904c6c29b463325c22906' => $baseDir . '/src/manager/ConnectionManager.php',
     '7fa0ff26ec9d67e3aa91303eac7c3b72' => $baseDir . '/src/manager/FormManager.php',
+    'ecaf44b90ec261b0d611f13db16ab419' => $baseDir . '/src/manager/CommentManager.php',
 );

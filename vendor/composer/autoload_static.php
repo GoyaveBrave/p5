@@ -15,6 +15,7 @@ class ComposerStaticInita02f6aed85a43b4524b89a5ea5fee336
         '776e3b46adda9b62666710decbcfe3a2' => __DIR__ . '/../..' . '/src/controller/AdminController.php',
         'f442fea79fd56758d9f409c0d2eaef1a' => __DIR__ . '/../..' . '/src/controller/ArticleController.php',
         '53b655b27a5e8b3c8cd95db8d5da3868' => __DIR__ . '/../..' . '/src/controller/ContactFormController.php',
+        '70bfe55a36ebd66bb22e2af19ee91657' => __DIR__ . '/../..' . '/src/controller/CommentController.php',
         '2345bb399e11636a0279a6cd854c7b9c' => __DIR__ . '/../..' . '/src/entity/Admin.php',
         '4e9d2141da77ff227a83a0c47eea6f99' => __DIR__ . '/../..' . '/src/entity/Article.php',
         '6e3616bb831d993acd6c56b424f31eb1' => __DIR__ . '/../..' . '/src/entity/Comments.php',
@@ -25,6 +26,7 @@ class ComposerStaticInita02f6aed85a43b4524b89a5ea5fee336
         '34aa91a62b2a9e2618fd021939ff150a' => __DIR__ . '/../..' . '/src/manager/ArticleManager.php',
         '93ed57057c2904c6c29b463325c22906' => __DIR__ . '/../..' . '/src/manager/ConnectionManager.php',
         '7fa0ff26ec9d67e3aa91303eac7c3b72' => __DIR__ . '/../..' . '/src/manager/FormManager.php',
+        'ecaf44b90ec261b0d611f13db16ab419' => __DIR__ . '/../..' . '/src/manager/CommentManager.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -83,6 +85,7 @@ class ComposerStaticInita02f6aed85a43b4524b89a5ea5fee336
     public static $classMap = array (
         'App\\controller\\AdminController' => __DIR__ . '/../..' . '/src/controller/AdminController.php',
         'App\\controller\\ArticleController' => __DIR__ . '/../..' . '/src/controller/ArticleController.php',
+        'App\\controller\\CommentController' => __DIR__ . '/../..' . '/src/controller/CommentController.php',
         'App\\controller\\ContactFormController' => __DIR__ . '/../..' . '/src/controller/ContactFormController.php',
         'App\\entity\\Admin' => __DIR__ . '/../..' . '/src/entity/Admin.php',
         'App\\entity\\Article' => __DIR__ . '/../..' . '/src/entity/Article.php',
@@ -94,6 +97,7 @@ class ComposerStaticInita02f6aed85a43b4524b89a5ea5fee336
         'App\\entity\\Mail' => __DIR__ . '/../..' . '/src/entity/Mail.php',
         'App\\entity\\Text' => __DIR__ . '/../..' . '/src/entity/Text.php',
         'App\\manager\\ArticleManager' => __DIR__ . '/../..' . '/src/manager/ArticleManager.php',
+        'App\\manager\\CommentManager' => __DIR__ . '/../..' . '/src/manager/CommentManager.php',
         'App\\manager\\Connection' => __DIR__ . '/../..' . '/src/manager/ConnectionManager.php',
         'App\\manager\\FormManager' => __DIR__ . '/../..' . '/src/manager/FormManager.php',
         'Doctrine\\Common\\Lexer\\AbstractLexer' => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer/AbstractLexer.php',

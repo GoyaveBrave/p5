@@ -7,6 +7,7 @@
             "src/controller/AdminController.php",
             "src/controller/ArticleController.php",
             "src/controller/ContactFormController.php",
+            "src/controller/CommentController.php",
             "src/entity/Admin.php",
             "src/entity/Article.php",
             "src/entity/Comments.php",
@@ -16,7 +17,8 @@
             "src/entity/Text.php",
             "src/manager/ArticleManager.php",
             "src/manager/ConnectionManager.php",
-            "src/manager/FormManager.php"
+            "src/manager/FormManager.php",
+            "src/manager/CommentManager.php"
         ],
         "classmap": [
             "src/controller",

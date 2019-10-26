@@ -1,11 +1,5 @@
-<?php 
-      //require_once 'model/form.html.php';
-      //require_once 'model/Contact.php';
-      use App\entity\Form;
-      $form = new Form($_POST);
-      $titlee = 'Contact Form';      
-      ?>
-  <?php ob_start(); ?>
+<?php ob_start(); ?>
+
 <div class="container-fluid bg-light mx-auto">
   <h1 class="d-flex justify-content-center pb-5 text-dark">Tell us !</h1>
 </div>
@@ -20,7 +14,7 @@
     <div class="card-body px-lg-5 pt-0">
 
         <!-- Form -->
-        <form class="text-center" style="color: #757575;" action="SendMail" method="POST">
+        <form class="text-center" style="color: #757575;" method="POST">
         
         <div class="md-form mt-3"> <label for="materialContactFormName">Name</label>
         <?= $form->inputfo('name'); ?>

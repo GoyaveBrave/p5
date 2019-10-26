@@ -1,9 +1,4 @@
-<?php
-use App\entity\Form;
-use App\entity\Text;
-$form = new Form($_POST);
-$titlee = 'Edit Post';      
-?>
+<?php use App\entity\Text; ?>
 <?php ob_start(); ?>
 
 <!-- Title and img--> 

@@ -1,9 +1,4 @@
-<?php 
-      use App\entity\Form;
-      $form = new Form($_POST);
-      $titlee = 'Sign In';      
-      ?>
-  <?php ob_start(); ?>
+<?php ob_start(); ?>
 
 <style>
       .bd-placeholder-img {

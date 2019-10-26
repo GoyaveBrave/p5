@@ -1,8 +1,3 @@
-<?php
-      use App\entity\Form;
-      $form = new Form($_POST);
-      $titlee = 'Register';      
-    ?>
 <?php ob_start(); ?>
 
 <style>

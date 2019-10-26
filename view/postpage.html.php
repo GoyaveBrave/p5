@@ -1,9 +1,4 @@
-<?php
-use App\entity\Text;
-use App\entity\Form;
-$form = new Form($_POST);
-$titlee = 'Single Post';      
-?>
+<?php use App\entity\Text; ?>
 <?php ob_start(); ?>
 <!-- Title and img--> 
 <div class="container-fluid bg-light mx-auto">
@@ -19,15 +14,16 @@ $titlee = 'Single Post';
   <p class="text-secondary">Date de modification : <?= $article->getDate() ?></p>
 
 </div>
-
-<form class="container form-group" action="index.php?action=addComment&amp;article=<?=$article->getId() ?>" method="POST">
-  <label for="comment">Comment :</label>
-  <?php
-  echo $form->inputco3('comment');
-  echo $form->inputco('username');
-  echo $form->submit();
-  ?>
-</form>
+<?php if(isset($_SESSION['mail'])): ?>
+                <form class="container form-group" action="index.php?action=addComment&amp;article=<?=$article->getId() ?>" method="POST">
+                <label for="comment">Comment :</label>
+                <?php
+                echo $form->inputco3('comment');
+                echo $form->inputco('username');
+                echo $form->submit();
+                ?>
+              </form>
+  <?php endif; ?>
 
 <?php foreach ($comments as $comment):  ?>
 <div class="container card w-50 bg-light pb-3">

@@ -1,6 +1,4 @@
-<?php use App\entity\Text;
-      use App\entity\Database;
-      $titlee = 'All Posts';      
+<?php use App\entity\Text;     
     ?>
 <?php ob_start(); ?>
    

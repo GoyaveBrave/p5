@@ -5,7 +5,7 @@ $pdo = Database::getPdo();
 class Comment 
 {
     
-    private $id, $username, $comments, $date;
+    private $id, $username, $comments, $date, $articles_id;
 
     public $donnees = [];
     public function __construct($donnees = [])
@@ -41,6 +41,9 @@ class Comment
     public function setDate($date){
         $this->date = $date; 
         }
+    public function setArticles_id($articles_id){
+        $this->articles_id = $articles_id; 
+        }
 //GETTER
     
     public function getId(){
@@ -54,5 +57,8 @@ class Comment
     }
     public function getDate(){
         return $this->date;
+    }
+    public function getArticles_id(){
+        return $this->articles_id;
     }
 }

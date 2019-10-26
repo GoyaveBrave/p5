@@ -1,5 +1,5 @@
 <?php namespace App\controller; 
-use App\entity\{Database, Mail, Contact};
+use App\entity\{Database, Mail, Contact, Form};
 class ContactFormController
 {
 
@@ -12,9 +12,14 @@ class ContactFormController
     }
 
     //CONTACT FORM
-
+    
     public function contactView()
     {
+        $form = new Form($_POST);
+        $titlee = 'Contact Form';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $this->contactSend();
+        }
         include('view/contactFormView.html.php');
     }
     public function contactSend()

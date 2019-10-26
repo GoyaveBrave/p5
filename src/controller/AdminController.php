@@ -1,10 +1,8 @@
 <?php
 
 namespace App\controller;
-use App\entity\Database;
-use App\entity\Admin;
-use App\manager\Connection;
-use App\manager\ArticleManager;
+use App\entity\{Database, Admin, Form};
+use App\manager\{Connection, CommentManager, ArticleManager};
 
 session_start();
 
@@ -21,6 +19,7 @@ class AdminController
     //HOME PAGE
     public function index()
     {
+        $titlee = 'Accueil - PHP/Symfony developer';
         $articleMana = new ArticleManager();
         $articles = $articleMana->findFour();
         require('view/homepage.view.html.php');
@@ -28,11 +27,13 @@ class AdminController
 
     public function adminView()
     {
+        $titlee = 'Dashboard - Admin';
         if (isset($_SESSION['mail'])) {
             $adminV = new ArticleManager();
+            $adminC = new CommentManager();
             $articles = $adminV->findAll();
-            $comments = $adminV->commentView();
-            $comments_verify = $adminV->commentVerifyView();
+            $comments = $adminC->commentView();
+            $comments_verify = $adminC->commentVerifyView();
             require('view/adminView.html.php');
         } else {
             $cont = new Controller;
@@ -42,6 +43,8 @@ class AdminController
     }
     public function signInView()
     {
+        $form = new Form($_POST);
+        $titlee = 'Sign In';
         $signIn = new Connection();
         include('view/signInView.html.php');
     }
@@ -75,11 +78,14 @@ class AdminController
     }
     public function signUpView()
     {
+        $form = new Form($_POST);
+        $titlee = 'Register';
         $signUp = new Connection();
         include('view/signUpView.html.php');
     }
     public function signUp()
     {
+
         $manager = new Connection();
         $admin = new Admin([
             'username' => $_POST['username'],
