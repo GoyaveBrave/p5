@@ -28,7 +28,7 @@ class Connection
     public function signIn()
     {
         $query = $this->pdo->prepare('SELECT mail, password FROM admin WHERE mail = :mail');
-        $query->execute(array('mail' => $_POST['mail']));
+        $query->execute(array('mail' => htmlentities($_POST['mail'])));
         $result = $query->fetch();
         return $result;
     }

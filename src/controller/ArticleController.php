@@ -28,7 +28,7 @@ class ArticleController
         $managerr = new CommentManager();
         $article = $manager->find($_GET['article']);
         $comments = $managerr->findCommentsByArticleId($_GET['article']);
-        require('view/postpage.html.php');
+        require 'view/postpage.html.php';
     }
     public function viewAll()
     {
@@ -43,7 +43,7 @@ class ArticleController
         $titlee = 'Edit Post';
         $manager = new ArticleManager();
         $article = $manager->find($_GET['article']);
-        require('view/editView.html.php');
+        require 'view/editView.html.php';
     }
     public function editPost()
     {

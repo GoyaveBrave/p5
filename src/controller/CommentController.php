@@ -32,7 +32,7 @@ class CommentController
     {
         $manager = new CommentManager();
         $comment = new Comment([
-            'articles_id' => $_GET['article'],
+            'articles_id' => htmlentities($_GET['article']),
             'comments' => htmlentities($_POST['comment']),
             'username' => htmlentities($_POST['username'])
         ]);
@@ -45,7 +45,8 @@ class CommentController
     {
         $manager = new CommentManager();
         $view = $manager->commentVerifyView();
-        $comment = new Comment(['id' => $_GET['article']]);
+        $comment = new Comment([
+            'id' => htmlentities($_GET['article'])]);
         $manager->commentVerify($comment);
         $controller = new AdminController;
         $controller->adminView();
@@ -53,7 +54,7 @@ class CommentController
     public function deleteComment()
     {
         $manager = new CommentManager();
-        $comment = new Comment(['id' => $_GET['article']]);
+        $comment = new Comment(['id' => htmlentities($_GET['article'])]);
         $manager->deleteComment($comment);
         $controller = new AdminController;
         $controller->adminView();

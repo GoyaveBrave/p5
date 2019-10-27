@@ -27,7 +27,7 @@ class AdminController
         $titlee = 'Accueil - PHP/Symfony developer';
         $articleMana = new ArticleManager();
         $articles = $articleMana->findFour();
-        require('view/homepage.view.html.php');
+        require 'view/homepage.view.html.php';
     }
 
     public function adminView()
@@ -39,7 +39,7 @@ class AdminController
             $articles = $adminV->findAll();
             $comments = $adminC->commentView();
             $comments_verify = $adminC->commentVerifyView();
-            require('view/adminView.html.php');
+            require 'view/adminView.html.php';
         } else {
             $cont = new AdminController;
             $adminSection = $cont->signInView();
@@ -96,9 +96,9 @@ class AdminController
     {
         $manager = new Connection();
         $admin = new Admin([
-            'username' => $_POST['username'],
-            'mail' => $_POST['mail'],
-            'password' =>  $_POST['password'],
+            'username' => htmlspecialchars($_POST['username']),
+            'mail' => htmlspecialchars($_POST['mail']),
+            'password' =>  htmlspecialchars($_POST['password']),
         ]);
         $manager->signUp($admin);
         $registered = new AdminController();
