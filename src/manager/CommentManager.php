@@ -32,7 +32,9 @@ class CommentManager
     }
     public function commentVerify(Comment $comment)
     {
-        $this->pdo->exec('UPDATE comments SET verify = 1 WHERE id = ' . $comment->getId());
+        $query = $this->pdo->prepare('UPDATE comments SET verify = 1 WHERE id = :id');
+        $query->bindValue(':id', $comment->getId());
+        $query->execute();
     }
     public function addComment(Comment $comment)
     {
@@ -46,7 +48,7 @@ class CommentManager
     public function findCommentsByArticleId($article_id)
     {
         $article_id = (int) $article_id;
-        $query = $this->pdo->prepare('SELECT * FROM comments WHERE articles_id=' . $article_id);
+        $query = $this->pdo->prepare('SELECT * FROM comments WHERE articles_id = :articles_id');
         $query->bindValue(':articles_id', $article_id, \PDO::PARAM_STR);
         $query->execute();
         $data = $query->fetchAll(\PDO::FETCH_CLASS, Comment::class);
@@ -55,7 +57,8 @@ class CommentManager
 
     public function deleteComment(Comment $comment)
     {
-        //$comment = (bool) $comment;
-        $this->pdo->exec('DELETE FROM comments WHERE id = ' . $comment->getId());
+        $query = $this->pdo->prepare('DELETE FROM comments WHERE id = :id'); 
+        $query->bindValue(':id', $comment->getId());
+        $query->execute();
     }
 }

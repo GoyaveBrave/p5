@@ -80,6 +80,8 @@ class ArticleManager
 
     public function deleteid(Article $article)
     {
-        $this->pdo->exec('DELETE FROM articles WHERE id = '.$article->getId());
+        $query = $this->pdo->prepare('DELETE FROM articles WHERE id = :id');
+        $query->bindValue(':id', $article->getId());
+        $query->execute();
     }
 }
