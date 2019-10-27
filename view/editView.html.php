@@ -1,4 +1,6 @@
-<?php use App\entity\Text; ?>
+<?php use App\entity\Text;
+
+?>
 <?php ob_start(); ?>
 
 <!-- Title and img--> 

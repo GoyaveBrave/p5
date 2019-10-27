@@ -1,7 +1,12 @@
 <?php
 namespace App\controller;
-use App\entity\{Article, Database, Comment, Form};
-use App\manager\{ArticleManager, CommentManager};
+
+use App\entity\Article;
+use App\entity\Database;
+use App\entity\Comment;
+use App\entity\Form;
+use App\manager\ArticleManager;
+use App\manager\CommentManager;
 use App\controller\CommentController;
 
 class ArticleController
@@ -27,7 +32,7 @@ class ArticleController
     }
     public function viewAll()
     {
-        $titlee = 'All Posts'; 
+        $titlee = 'All Posts';
         $articleMana = new ArticleManager();
         $articles = $articleMana->findAll();
         include('view/allPostspage.html.php');
@@ -89,7 +94,3 @@ class ArticleController
         $controller->adminView();
     }
 }
-
-
-
-

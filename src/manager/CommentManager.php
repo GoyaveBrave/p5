@@ -1,6 +1,9 @@
 <?php
 namespace App\manager;
-use App\entity\{Database, Article, Comment};
+
+use App\entity\Database;
+use App\entity\Article;
+use App\entity\Comment;
 
 class CommentManager
 {

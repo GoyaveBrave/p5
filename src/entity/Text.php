@@ -1,7 +1,8 @@
 <?php
 namespace App\entity;
-class Text {
 
+class Text
+{
     public static function excerpt(string $content, int $limit = 60)
     {
         if (strlen($content) <= $limit) {

@@ -1,5 +1,6 @@
- <?php 
-      use App\entity\Text;      
+ <?php
+      use App\entity\Text;
+
 ?>
 <?php ob_start(); ?>
 <link rel="stylesheet" href="view/css/bootstrap.css">

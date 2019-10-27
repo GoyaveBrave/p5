@@ -1,4 +1,6 @@
-<?php use App\entity\Text; ?>
+<?php use App\entity\Text;
+
+?>
 <?php ob_start(); ?>
 <!-- Title and img--> 
 <div class="container-fluid bg-light mx-auto">
@@ -14,7 +16,7 @@
   <p class="text-secondary">Date de modification : <?= $article->getDate() ?></p>
 
 </div>
-<?php if(isset($_SESSION['mail'])): ?>
+<?php if (isset($_SESSION['mail'])): ?>
                 <form class="container form-group" action="index.php?action=addComment&amp;article=<?=$article->getId() ?>" method="POST">
                 <label for="comment">Comment :</label>
                 <?php

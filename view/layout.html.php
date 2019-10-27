@@ -1,5 +1,5 @@
 <?php $status = session_status();
-if($status == PHP_SESSION_NONE){
+if ($status == PHP_SESSION_NONE) {
     //There is no active session
     session_start();
 } ?>
@@ -31,12 +31,11 @@ if($status == PHP_SESSION_NONE){
                 <a class="nav-link" href="Contact">Contact</a>
               </li>
               </div>
-              <?php if(isset($_SESSION['mail'])){
-                echo '<a href="Dashboard" class="btn btn-success" role="button">Dashboard</a>';
-                   }
-                     else {
-                           echo '<a href="Sign-In" class="btn btn-success justify-content-end" role="button">Sign In</a>';
-                  } ?>
+              <?php if (isset($_SESSION['mail'])) {
+    echo '<a href="Dashboard" class="btn btn-success" role="button">Dashboard</a>';
+} else {
+                         echo '<a href="Sign-In" class="btn btn-success justify-content-end" role="button">Sign In</a>';
+                     } ?>
               </nav>
 <?= $content ?>
 </body>

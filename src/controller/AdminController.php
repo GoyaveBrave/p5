@@ -1,8 +1,13 @@
 <?php
 
 namespace App\controller;
-use App\entity\{Database, Admin, Form};
-use App\manager\{Connection, CommentManager, ArticleManager};
+
+use App\entity\Database;
+use App\entity\Admin;
+use App\entity\Form;
+use App\manager\Connection;
+use App\manager\CommentManager;
+use App\manager\ArticleManager;
 
 session_start();
 
@@ -89,7 +94,6 @@ class AdminController
     }
     public function signUp()
     {
-
         $manager = new Connection();
         $admin = new Admin([
             'username' => $_POST['username'],
@@ -99,6 +103,5 @@ class AdminController
         $manager->signUp($admin);
         $registered = new AdminController();
         $registered->signInView();
-        
     }
 }

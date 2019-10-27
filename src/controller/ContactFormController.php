@@ -1,5 +1,10 @@
-<?php namespace App\controller; 
-use App\entity\{Database, Mail, Contact, Form};
+<?php namespace App\controller;
+
+use App\entity\Database;
+use App\entity\Mail;
+use App\entity\Contact;
+use App\entity\Form;
+
 class ContactFormController
 {
 

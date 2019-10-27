@@ -1,12 +1,13 @@
-<?php use App\entity\Text;     
-    ?>
+<?php use App\entity\Text;
+
+?>
 <?php ob_start(); ?>
    
       <!--Section1-->
       <h2>All Posts</h2>
       <div class="container-fluid w-85">
       <div class="d-flex justify-content-around flex-wrap">
-      <?php 
+      <?php
       foreach ($articles as $article): ?>
       <div class="col-5 mt-5">
         <img src="view/img/<?= $article->getImg() ?>" class="img-thumbnail w-25">

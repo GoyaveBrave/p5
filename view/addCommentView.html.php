@@ -1,7 +1,7 @@
-<?php 
+<?php
 require_once 'model/form.html.php';
 require_once 'model/Admin.php';
-$titlee = 'Add a comment';  
+$titlee = 'Add a comment';
 $form = new Form($_POST);
 ?>
 <?php ob_start(); ?>
