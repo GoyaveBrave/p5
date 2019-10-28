@@ -41,7 +41,7 @@ class ArticleManager
 
     public function findFour()
     {
-        $query = $this->pdo->query("SELECT * FROM articles ORDER BY id DESC LIMIT 4");
+        $query = $this->pdo->query("SELECT * FROM articles ORDER BY id DESC LIMIT 2");
         // On exécute la requête en précisant le paramètre :article_id
         $query->execute();
         // On fouille le résultat pour en extraire les données réelles de l'article

@@ -3,7 +3,7 @@ namespace App\entity;
 
 class Text
 {
-    public static function excerpt(string $content, int $limit = 60)
+    public static function excerpt(string $content, int $limit = 40)
     {
         if (strlen($content) <= $limit) {
             return $content;

@@ -4,7 +4,7 @@
   <h1 class="d-flex justify-content-center pb-5 text-dark">Tell us !</h1>
 </div>
 <!-- Material form contact -->
-<div class="container card">
+<div class="container-fluid card">
 
     <h5 class="container.fluid bg-transparent text-success text-center py-4">
         Contact us

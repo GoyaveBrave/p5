@@ -3,7 +3,7 @@
   <h1 class="d-flex justify-content-center pb-5 text-dark">Add your Post</h1>
 </div>
 
-<form class="container" action="index.php?action=addPost" method="POST"> 
+<form class="container-fluid" action="index.php?action=addPost" method="POST"> 
 
         <?php
         echo $form->input('img');
