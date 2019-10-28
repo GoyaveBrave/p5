@@ -4,7 +4,7 @@
   <h1 class="d-flex justify-content-center pb-5 text-dark">Tell us !</h1>
 </div>
 <!-- Material form contact -->
-<div class="container-fluid card">
+<div class="container w-75 card">
 
     <h5 class="container.fluid bg-transparent text-success text-center py-4">
         Contact us
@@ -30,6 +30,10 @@
 
         </form>
     </div>
+
+    <div><a href="public/CV.pdf" class="btn btn-success" role="button">Téléchargez mon CV ici</a>
+    <p class="text-success"><br>Rejoins moi sur linkedin</p>
+    <a href="https://www.linkedin.com/in/goyave69/" class="fa fa-linkedin w-100"></a></div>
 
 </div>
 <?php $content = ob_get_clean(); ?>
